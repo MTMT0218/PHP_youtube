@@ -15,10 +15,10 @@ class Mysql{
 	
 	public function __construct(){
 		$url = parse_url(getenv("mysql://b69a00192bba70:cc2cf84a@us-cdbr-east-02.cleardb.com/heroku_41d67058b7130b9?reconnect=true"));
-		$this->$db_name = substr($url["path"], 1);
-		$this->host = $url["host"];
-		$this->user = $url["user"];
-		$this->pass = $url["pass"];
+		$this->$db_name = " heroku_41d67058b7130b9";
+		$this->host ="us-cdbr-east-02.cleardb.com";
+		$this->user ="b69a00192bba70";
+		$this->pass ="cc2cf84a";
 		print($this->host);
 	}
 
