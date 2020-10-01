@@ -17,7 +17,7 @@ if(isset($_POST["make_room"])){
     //クッキーに動画がない時
     if(!isset($_COOKIE["get_videos"])){
         echo "動画を指定してください<br />";
-        echo'<a href= "home.php" target="_blank">
+        echo'<a href= "Home.php" target="_blank">
         ホームに戻る </a><br>';
         exit();
     }
