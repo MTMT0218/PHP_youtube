@@ -19,7 +19,7 @@ class Mysql{
 		$this->host ="us-cdbr-east-02.cleardb.com";
 		$this->user ="b69a00192bba70";
 		$this->pass ="cc2cf84a";
-		print($this->host);
+		
 	}
 
 
