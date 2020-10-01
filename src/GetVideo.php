@@ -12,14 +12,7 @@ $videos=array();
 session_start();
 //検索キーワードが入力された場合にapiからデータをもらう
 if (isset($_GET['keyword'])){
-//AIzaSyA0RcnymjK_VzkoWcgEQfyYYrjkXglzSZo
-  //"AIzaSyAWT_BYkZaFQ_iqsq_kaIzaPqBglbM7UHA"
-  $DEVELOPER_KEY="AIzaSyB3RBjEPiTqNHVy90_ZIOgM0mYKxDe3VLA";
-  $client = new Google_Client();
-  $client->setDeveloperKey($DEVELOPER_KEY);
-  $youtube = new Google_Service_YouTube($client);
-  
-  
+echo "aaa";
 }
 if(isset($videos)){
 $smarty->assign("VIDEOS",$videos);
