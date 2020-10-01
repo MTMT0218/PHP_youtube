@@ -12,7 +12,52 @@ $videos=array();
 session_start();
 //検索キーワードが入力された場合にapiからデータをもらう
 if (isset($_GET['keyword'])){
-echo "aaa";
+//AIzaSyA0RcnymjK_VzkoWcgEQfyYYrjkXglzSZo
+  //"AIzaSyAWT_BYkZaFQ_iqsq_kaIzaPqBglbM7UHA"
+  $DEVELOPER_KEY="AIzaSyB3RBjEPiTqNHVy90_ZIOgM0mYKxDe3VLA";
+  $client = new Google_Client();
+  $client->setDeveloperKey($DEVELOPER_KEY);
+  $youtube = new Google_Service_YouTube($client);
+  
+  $_SESSION["q_word"]=$_GET['keyword'];
+  $_SESSION["sort"]=$_GET["sort"];
+  $_SESSION["type"]=$_GET["type"];
+  //next、prevボタンをされたのなら前回確保したセッションを使い
+  //ページ検索
+  $page="";
+  if(isset($_GET["next"])){
+    $page=$_SESSION["next"];
+  }else if(isset($_GET["prev"])){
+    $page=$_SESSION["prev"];
+  }
+  
+  //APIを使用してデータ取得
+  if($_GET["type"]=="live"){
+    $_GET["type"]=["completed","live","upcoming"];
+  }
+  $searchResponse = 
+  $youtube->search->listSearch('id,snippet', array(
+    'q' => $_GET["keyword"],
+    'order'=>$_GET["sort"],
+    'maxResults' =>$_GET["max_results"],
+    'eventType'=>$_GET["type"],
+    'pageToken'=>$page,
+    'type'=>'video',
+  ));
+
+ 
+  $_SESSION["next"]=$searchResponse["nextPageToken"];
+  $_SESSION["prev"]=$searchResponse["prevPageToken"];
+  
+
+
+  foreach ($searchResponse['items'] as $searchResult) {
+    if ($searchResult['id']['kind']=='youtube#video'){
+        array_push($videos,
+        array("title"=>$searchResult['snippet']['title'],
+        "id"=>$searchResult['id']['videoId']));    
+    }
+    }
 }
 if(isset($videos)){
 $smarty->assign("VIDEOS",$videos);

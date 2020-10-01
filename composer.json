@@ -1,6 +1,7 @@
 {
     "require": {
         "php": "~7.0",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "google/apiclient":"~2.0"
       }
 }
