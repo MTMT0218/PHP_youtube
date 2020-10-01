@@ -15,12 +15,11 @@ class Mysql{
 	
 	public function __construct(){
 		$url = parse_url(getenv("mysql://b69a00192bba70:cc2cf84a@us-cdbr-east-02.cleardb.com/heroku_41d67058b7130b9?reconnect=true"));
-		
-		
 		$this->$db_name = substr($url["path"], 1);
 		$this->host = $url["host"];
 		$this->user = $url["user"];
 		$this->pass = $url["pass"];
+		print($this->host);
 	}
 
 
