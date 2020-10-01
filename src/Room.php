@@ -30,7 +30,7 @@ if(isset($_POST["make_room"])){
         }
         $_SESSION["room_id"]=$room_id;
     setcookie("get_videos", "", time() - 30, '/');
-    header("Location:room.php");
+    header("Location:Room.php");
     }
 }
 
