@@ -14,21 +14,18 @@ class Mysql{
     public $room_table;
 	
 	public function __construct(){
-		$url = parse_url(getenv("mysql://b69a00192bba70:cc2cf84a@us-cdbr-east-02.cleardb.com/heroku_41d67058b7130b9?reconnect=true"));
-		$this->$db_name = " heroku_41d67058b7130b9";
-		$this->host ="us-cdbr-east-02.cleardb.com";
-		$this->user ="b69a00192bba70";
-		$this->pass ="cc2cf84a";
-		
-	}
+		$this->$db_name =getenv("DB_DATABASE");
+		$this->host =getenv("DB_HOST");
+		$this->user =getenv("DB_USERNAME");
+		$this->pass =getenv("DB_PASSWORD");
+		}
 
 
 	public function connect_mysqli(){
 		$this->mysqli = new mysqli($this->host,$this->user,$this->pass,$this->db_name);
 		$this->mysqli->set_charset('utf8');
 		if( $this->mysqli->connect_errno ) {
-			printf("Connect failed: %s\n", $this->mysqli->connect_error);
-   			exit();
+			die(sprintf("Connect failed: %s\n", $this->mysqli->connect_error));
 		}
 	}
 	
