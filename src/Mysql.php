@@ -27,6 +27,14 @@ class Mysql{
 		if( $this->mysqli->connect_errno ) {
 			die(sprintf("Connect failed: %s\n", $this->mysqli->connect_error));
 		}
+        $sql = 'CREATE TABLE IF NOT EXISTS room(
+        id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        room_name VARCHAR(30),
+        time DATETIME
+        ) engine=innodb default charset=utf8';
+        if( $this->mysqli->connect_errno ) {
+			die(sprintf("Connect failed: %s\n", $this->mysqli->connect_error));
+		}
 	}
 	
 	public function Escape($word){
