@@ -10,6 +10,7 @@ class Room_Table{
         room_name VARCHAR(30),
         time DATETIME
         ) engine=innodb default charset=utf8';
+        $res = $this->mysqli->query($sql);
         if(!$res){
             print($this->mysqli->error);
             }   
