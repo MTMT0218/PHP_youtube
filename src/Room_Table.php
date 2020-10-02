@@ -10,9 +10,7 @@ class Room_Table{
         room_name VARCHAR(30),
         time DATETIME
         ) engine=innodb default charset=utf8';
-        if( $this->mysqli->connect_errno ) {
-			die(sprintf("Connect failed: %s\n", $this->mysqli->connect_error));
-		}
+        print( $this->mysqli->error);
     }
 
     
