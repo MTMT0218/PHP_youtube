@@ -26,7 +26,7 @@ class Mysql{
 		$this->mysqli->set_charset('utf8');
 		if( $this->mysqli->connect_errno ) {
 			printf("Connect failed: %s\n", $this->mysqli->connect_error);
-  			exit();
+    exit();
 		}
 	}
 	
