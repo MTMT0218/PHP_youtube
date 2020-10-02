@@ -11,7 +11,7 @@ class Room_Table{
         time DATETIME
         ) engine=innodb default charset=utf8';
         if(!$res){
-            printf( "Error message: %s<>",$this->mysqli->error);
+            print($this->mysqli->error);
             }   
     }
 
