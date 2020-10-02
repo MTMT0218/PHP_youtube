@@ -10,9 +10,13 @@ class Room_Table{
         room_name VARCHAR(30),
         time DATETIME
         ) engine=innodb default charset=utf8';
-        $res = $this->mysqli->query($sql);
+        try{
+        $this->mysqli->query($sql);
+        }
+        catch(PDOException $e){
         print( $this->mysqli->error);
         }
+    }
 
     
     public function insert($name){
