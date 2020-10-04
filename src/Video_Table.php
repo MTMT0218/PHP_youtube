@@ -4,20 +4,6 @@ public $mysqli;
 
 public function __construct($mysql){
     $this->mysqli=$mysql;
-   
-    //テーブル作成
-    $sql = 'CREATE TABLE IF NOT EXISTS video(
-        id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        room_id INT(11),
-        video_name VARCHAR(100),
-        video_id VARCHAR(100),
-        thumbnails VARCHAR(100)
-        ) engine=innodb default charset=utf8';
-        $res = $this->mysqli->query($sql);
-        if(!$res){
-            printf( "Error message:%s<br>",$this->mysqli->error);
-
-        }    
     }
 
     //入力
