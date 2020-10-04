@@ -31,6 +31,8 @@ class Mysql{
 		else {
 			$this->mysqli->set_charset("utf8");
 		}
+		var_dump($this->mysqli);
+
 	}
 	
 	public function Escape($word){
