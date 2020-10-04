@@ -35,14 +35,6 @@ class Mysql{
 		else {
 			$this->mysqli->set_charset("utf8");
 		}
-		$sql=sprintf("use %s",$this->db_name);
-		
-			$res = $this->mysqli->query($sql);
-			var_dump($this->mysqli);
-			if(!$res){
-				printf( "Error message:%s<br>",$this->mysqli->error);
-			}    
-
 	}
 	
 	public function Escape($word){
