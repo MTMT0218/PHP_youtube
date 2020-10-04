@@ -4,6 +4,7 @@ public $mysqli;
 
 public function __construct($mysql){
     $this->mysqli=$mysql;
+    printf("qqq");
     printf( "Error message:%s<br>",$this->mysqli->error);
 
     //テーブル作成
