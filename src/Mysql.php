@@ -18,7 +18,6 @@ class Mysql{
 		$this->host =getenv("DB_HOST");
 		$this->user =getenv("DB_USERNAME");
 		$this->pass =getenv("DB_PASSWORD");
-
 		}
 
 	public function __destruct()

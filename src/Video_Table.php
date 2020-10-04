@@ -26,14 +26,14 @@ public function __construct($mysql){
         $temp="";
 		if($res){
             $temp = $res->fetch_all(MYSQLI_ASSOC);
-		}
+        }
+        if(!$temp){
         printf("Read failed video: %s\n",$this->mysqli->error);
-       return $temp;
+        }
+        return $temp;
     }
 
     public function All_read(){
-        sleep(1); 
-
         $sql = spritf('SELECT * FROM %s.video',getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
         $temp="";
@@ -47,8 +47,6 @@ public function __construct($mysql){
 
     //削除
      public function delete($room_id){
-        sleep(1); 
-
         $sql=sprintf("DELETE FROM %s.video WHERE room_id=".$room_id,getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
         print( $this->mysqli->error);
