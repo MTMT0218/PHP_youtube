@@ -20,6 +20,10 @@ class Mysql{
 		$this->pass =getenv("DB_PASSWORD");
 		}
 
+	public function __destruct()
+		{// DB接続を閉じる
+			$this->mysqli->close();
+		}
 
 	public function connect_mysqli(){
 		$this->mysqli = new mysqli($this->host,$this->user,$this->pass,$this->db_name);
@@ -31,7 +35,19 @@ class Mysql{
 		else {
 			$this->mysqli->set_charset("utf8");
 		}
-		var_dump($this->mysqli);
+		
+		$sql = 'CREATE TABLE IF NOT EXISTS video(
+			id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+			room_id INT(11),
+			video_name VARCHAR(100),
+			video_id VARCHAR(100),
+			thumbnails VARCHAR(100)
+			) engine=innodb default charset=utf8';
+			$res = $this->mysqli->query($sql);
+			if(!$res){
+				printf( "Error message:%s<br>",$this->mysqli->error);
+	
+			}    var_dump($this->mysqli);
 
 	}
 	
@@ -40,7 +56,6 @@ class Mysql{
 	}
     
     public function create_room_table(){
-		var_dump($this->mysqli);
         $this->room_table  = new Room_Table($this->mysqli);
     }
 	

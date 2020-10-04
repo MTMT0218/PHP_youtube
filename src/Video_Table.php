@@ -15,6 +15,8 @@ public function __construct($mysql){
         ) engine=innodb default charset=utf8';
         $res = $this->mysqli->query($sql);
         if(!$res){
+            printf( "Error message:%s<br>",$this->mysqli->error);
+
         }    
     }
 
