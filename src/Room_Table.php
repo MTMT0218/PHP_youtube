@@ -28,7 +28,7 @@ class Room_Table{
 	public function read(){
         sleep(1); 
 
-        $sql = 'SELECT * FROM room';
+        $sql = sprintf('SELECT * FROM %sroom',getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
         $temp="";
 		if($res){
