@@ -40,6 +40,7 @@ class Mysql{
 	}
     
     public function create_room_table(){
+		var_dump($this->mysqli);
         $this->room_table  = new Room_Table($this->mysqli);
     }
 	
