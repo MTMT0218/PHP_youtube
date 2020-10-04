@@ -35,15 +35,8 @@ class Mysql{
 		else {
 			$this->mysqli->set_charset("utf8");
 		}
+		$sql=sprintf("use %s",$this->db_name);
 		
-		$sql = sprintf('CREATE TABLE IF NOT EXISTS %s.video(
-			id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-			room_id INT(11),
-			video_name VARCHAR(100),
-			video_id VARCHAR(100),
-			thumbnails VARCHAR(100)
-			) default charset=utf8',$this->db_name);
-			
 			$res = $this->mysqli->query($sql);
 			var_dump($this->mysqli);
 			if(!$res){
