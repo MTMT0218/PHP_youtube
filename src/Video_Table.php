@@ -4,9 +4,7 @@ public $mysqli;
 
 public function __construct($mysql){
     $this->mysqli=$mysql;
-    printf("qqq");
-    printf( "Error message:%s<br>",$this->mysqli->error);
-
+    var_dump($this->mysqli);
     //テーブル作成
     $sql = 'CREATE TABLE IF NOT EXISTS video(
         id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
