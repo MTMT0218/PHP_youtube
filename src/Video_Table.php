@@ -20,8 +20,8 @@ public function __construct($mysql){
     public function read($room_id){
         sleep(1); 
 
-        $sql = 'SELECT * FROM video 
-        WHERE room_id='.$room_id;
+        $sql = sprintf('SELECT * FROM %s.video 
+        WHERE room_id='.$room_id,getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
         $temp="";
 		if($res){
