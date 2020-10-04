@@ -4,6 +4,8 @@ public $mysqli;
 
 public function __construct($mysql){
     $this->mysqli=$mysql;
+    printf( "Error message:%s<br>",$this->mysqli->error);
+
     //テーブル作成
     $sql = 'CREATE TABLE IF NOT EXISTS video(
         id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -14,7 +16,6 @@ public function __construct($mysql){
         ) engine=innodb default charset=utf8';
         $res = $this->mysqli->query($sql);
         if(!$res){
-        printf( "Error message:%s<br>",$this->mysqli->error);
         }    
     }
 

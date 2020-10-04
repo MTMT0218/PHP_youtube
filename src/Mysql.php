@@ -28,6 +28,9 @@ class Mysql{
 			printf("Connect failed: %s\n", $this->mysqli->connect_error);
     		exit();
 		}
+		else {
+			$this->mysqli->set_charset("utf8");
+		}
 	}
 	
 	public function Escape($word){
