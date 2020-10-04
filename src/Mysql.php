@@ -43,10 +43,11 @@ class Mysql{
 			video_id VARCHAR(100),
 			thumbnails VARCHAR(100)
 			) engine=innodb default charset=utf8';
+			var_dump($this->mysqli);
 			$res = $this->mysqli->query($sql);
+			var_dump($this->mysqli);
 			if(!$res){
 				printf( "Error message:%s<br>",$this->mysqli->error);
-	
 			}    
 
 	}
