@@ -8,12 +8,13 @@ $smarty->compile_dir = "../smarty/templates_c/";
 include("Mysql.php");
 $mysql=new Mysql();
 $mysql->connect_mysqli();
-
+sleep(3);
 $mysql->create_room_table();
+sleep(3);
 $mysql->create_video_table();
 $room_table=$mysql->room_table;
 $video_table=$mysql->video_table;
-
+sleep(3);
 $rooms=$room_table->read();
 $videos=array();
 
