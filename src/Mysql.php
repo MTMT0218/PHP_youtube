@@ -18,8 +18,7 @@ class Mysql{
 		$this->host =getenv("DB_HOST");
 		$this->user =getenv("DB_USERNAME");
 		$this->pass =getenv("DB_PASSWORD");
-		print($this->$db_name);
-		
+
 		}
 
 	public function __destruct()
@@ -28,7 +27,7 @@ class Mysql{
 		}
 
 	public function connect_mysqli(){
-		$this->mysqli = new mysqli($this->host,$this->user,$this->pass,$this->db_name);
+		$this->mysqli = new mysqli($this->host,$this->user,$this->pass,$this->db_name,"3306");
 		$this->mysqli->set_charset('utf8');
 		if( $this->mysqli->connect_errno ) {
 			printf("Connect failed: %s\n", $this->mysqli->connect_error);
@@ -37,6 +36,7 @@ class Mysql{
 		else {
 			$this->mysqli->set_charset("utf8");
 		}
+		ini_set('display_errors',1);
 	}
 	
 	public function Escape($word){
