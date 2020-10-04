@@ -35,15 +35,15 @@ class Mysql{
 		else {
 			$this->mysqli->set_charset("utf8");
 		}
-		var_dump($this->mysqli);
-		$sql = 'CREATE TABLE IF NOT EXISTS video(
+		
+		$sql = sprintf('CREATE TABLE IF NOT EXISTS %s.video(
 			id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 			room_id INT(11),
 			video_name VARCHAR(100),
 			video_id VARCHAR(100),
 			thumbnails VARCHAR(100)
-			) engine=innodb default charset=utf8';
-			var_dump($this->mysqli);
+			) default charset=utf8',$this->db_name);
+			
 			$res = $this->mysqli->query($sql);
 			var_dump($this->mysqli);
 			if(!$res){
