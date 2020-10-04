@@ -35,7 +35,7 @@ class Mysql{
 		else {
 			$this->mysqli->set_charset("utf8");
 		}
-		
+		var_dump($this->mysqli);
 		$sql = 'CREATE TABLE IF NOT EXISTS video(
 			id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 			room_id INT(11),
@@ -47,7 +47,7 @@ class Mysql{
 			if(!$res){
 				printf( "Error message:%s<br>",$this->mysqli->error);
 	
-			}    var_dump($this->mysqli);
+			}    
 
 	}
 	
