@@ -34,8 +34,9 @@ class Room_Table{
 		if($res){
 		$temp = $res->fetch_all(MYSQLI_ASSOC);
 		}
-		return $temp;
-		print( $this->mysqli->error);
+		
+        printf("Read failed room: %s\n",$this->mysqli->error);
+        return $temp;
     }
 
     

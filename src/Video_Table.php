@@ -27,7 +27,7 @@ public function __construct($mysql){
 		if($res){
             $temp = $res->fetch_all(MYSQLI_ASSOC);
 		}
-        print( $this->mysqli->error);
+        printf("Read failed video: %s\n",$this->mysqli->error);
        return $temp;
     }
 

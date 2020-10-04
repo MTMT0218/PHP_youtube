@@ -47,12 +47,12 @@ if(isset($_POST["del_room"])){
     $video_table->delete($room_id);
     header("Location:./");
 }
-//不正に移行（url直打ち）してきたときはhomeに移行
+
 if(isset($_SESSION["room_id"])){
 $room=$room_table->read($_SESSION["room_id"]);
 $videos=$video_table->read($_SESSION["room_id"]);
 }
-else{
+else{//不正に移行（url直打ち）してきたときはhomeに移行
     header("Location:");
     exit;
 }
