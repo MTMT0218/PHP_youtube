@@ -26,7 +26,7 @@ class Mysql{
 		$this->mysqli->set_charset('utf8');
 		if( $this->mysqli->connect_errno ) {
 			printf("Connect failed: %s\n", $this->mysqli->connect_error);
-    exit();
+    		exit();
 		}
 	}
 	
@@ -35,16 +35,16 @@ class Mysql{
 	}
     
     public function create_room_table(){
-        $this->room_table  = new room_table($this->mysqli);
+        $this->room_table  = new Room_Table($this->mysqli);
     }
 	
 	public function create_register_table(){
-        $this->register_table  = new register_table($this->mysqli);
+        $this->register_table  = new Register_Table($this->mysqli);
     }
     
 
 	public function create_video_table(){
-        $this->video_table  = new video_table($this->mysqli);
+        $this->video_table  = new Video_Table($this->mysqli);
     }
     
 }

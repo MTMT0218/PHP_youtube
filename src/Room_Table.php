@@ -12,7 +12,7 @@ class Room_Table{
         ) engine=innodb default charset=utf8';
         $res = $this->mysqli->query($sql);
         if(!$res){
-            print($this->mysqli->error);
+            printf( "Error message:%s<br>",$this->mysqli->error);
             }   
     }
 
