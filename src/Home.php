@@ -7,7 +7,7 @@ $smarty->compile_dir = "../smarty/templates_c/";
 
 include("Mysql.php");
 $videos=array();
-$rooms=array():
+$rooms=array();
 $mysql=new Mysql();
 $mysql->connect_mysqli();
 $mysql->create_room_table();
