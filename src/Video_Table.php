@@ -8,6 +8,7 @@ public function __construct($mysql){
 
     //入力
     public function insert($room_id,$video_name,$video_id){
+        sleep(1); 
       $sql = "INSERT INTO video(
             room_id,video_name,video_id
             )VALUES ('$room_id','$video_name','$video_id')";
@@ -17,6 +18,8 @@ public function __construct($mysql){
 
     //読み込み
     public function read($room_id){
+        sleep(1); 
+
         $sql = 'SELECT * FROM video 
         WHERE room_id='.$room_id;
         $res = $this->mysqli->query($sql);
@@ -29,6 +32,8 @@ public function __construct($mysql){
     }
 
     public function All_read(){
+        sleep(1); 
+
         $sql = 'SELECT * FROM video';
         $res = $this->mysqli->query($sql);
         $temp="";
@@ -42,6 +47,8 @@ public function __construct($mysql){
 
     //削除
      public function delete($room_id){
+        sleep(1); 
+
         $sql="DELETE FROM video WHERE room_id=".$room_id;
         $res = $this->mysqli->query($sql);
         print( $this->mysqli->error);

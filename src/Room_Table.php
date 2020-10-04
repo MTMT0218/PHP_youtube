@@ -9,6 +9,8 @@ class Room_Table{
 
     
     public function insert($name){
+        sleep(1); 
+
         $now = date('Y-m-d H:i:s');
         $sql = "INSERT INTO room(
             room_name,time
@@ -24,6 +26,8 @@ class Room_Table{
     }
 
 	public function read(){
+        sleep(1); 
+
         $sql = 'SELECT * FROM room';
         $res = $this->mysqli->query($sql);
         $temp="";
@@ -37,6 +41,8 @@ class Room_Table{
     
     //削除
     public function delete($room_id){
+        sleep(1); 
+
         $sql="DELETE FROM room WHERE id=".$room_id;
         $res = $this->mysqli->query($sql);
         print( $this->mysqli->error);
