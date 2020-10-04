@@ -9,12 +9,11 @@ class Room_Table{
 
     
     public function insert($name){
-        sleep(1); 
-
         $now = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO room(
+
+        $sql = sprintf("INSERT INTO %s.room(
             room_name,time
-            )VALUES ('$name','$now')";
+            )VALUES ('$name','$now')",getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
         print( $this->mysqli->error);
         #作ったルームのidを取得
@@ -44,7 +43,7 @@ class Room_Table{
     public function delete($room_id){
         sleep(1); 
 
-        $sql="DELETE FROM room WHERE id=".$room_id;
+        $sql=spritf("DELETE FROM %s.room WHERE id=".$room_id,getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
         print( $this->mysqli->error);
     }
