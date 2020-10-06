@@ -15,10 +15,11 @@ $mysql=new Mysql();
 $mysql->connect_mysqli();
 $mysql->create_room_table();
 $mysql->create_video_table();
+print("c");
 $room_table=$mysql->room_table;
 $video_table=$mysql->video_table;
 $rooms=$room_table->All_read();
-print("c");
+
 
 foreach($rooms as $r){
   try{
