@@ -28,20 +28,23 @@ jQuery(function($){
           var exit_video_FLAG=0;//すでにクッキーにチェックされた動画あるか否か
           var temp={};
           temp={"id":encode_id,"value":encode_value};
+          if(save_values.length>6){
+            alert("選択できる動画は6個までです");
+           this.checked=false; 
+          }
+          else{
           for (var i=0; i<save_values.length; i++) {
             if(save_values[i]["id"]==encode_id){
                   exit_video_FLAG=1;
                   break;
               }            
           }
-          if(save_values.length>6){
-            alert("選択できる動画は6個までです");
-            break;
-          }
+          
           if(exit_video_FLAG==0){
-            save_values.push(temp);
-          }
-        }
+              save_values.push(temp);
+            }
+           }
+      }
         
         //チェック外された動画はクッキーから削除
         else{
