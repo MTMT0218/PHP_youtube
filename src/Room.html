@@ -1,34 +1,40 @@
 <html>
 <head>
 <meta content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="Home.css">
+<link rel="stylesheet" href="css/Room.css">
 <title>YouTube部屋</title>  
 </head>
 <body>
+<div class="header">
+    <div class="home-trans">
+        <a href= "Home.php" target="_blank">
+            ホームに戻る 
+        </a>
+    </div>
+    <div class="room_name">
+        <h2>{$ROOM.room_name}</h2>
+    </div>
+</div>
+<div class="videos">
+    {foreach $VIDEOS as $V}
+    <!--<div class="video_name">
+    {$V.video_name}<br>
+    </div>-->
+    <div class="sthumbnail">
+        <iframe 
+        src="https://www.youtube.com/embed/{$V.video_id}" 
+        frameborder="0" allow="accelerometer; autoplay; 
+        clipboard-write; encrypted-media; gyroscope; 
+        picture-in-picture" allowfullscreen></iframe>
+    </div>
+    {/foreach}
+</div>
+<div class="delete_room">
+    <form method="POST">
+        <input type="submit" name="del_room" value="削除">
+    </form>
+</div>
 
-<ul>
-{foreach $VIDEOS as $V}
 
-<li>{$V.video_name}
-<br>
-<iframe width="560" height="315" 
-src="https://www.youtube.com/embed/{$V.video_id}" 
-frameborder="0" allow="accelerometer; autoplay; 
-clipboard-write; encrypted-media; gyroscope; 
-picture-in-picture" allowfullscreen>
-</iframe>
-</li>
-<br>
-{/foreach}
-</ul>
-<br>
-
-
-
-<a href= "Home.php" target="_blank">
-    ホームに戻る </a><br>
-<form method="POST">
-<input type=submit name="del_room" value="削除">
-</form>
 </body>
 </html>

@@ -1,9 +1,12 @@
 <?php
-require_once "../smarty/libs/Smarty.class.php";
+require_once __DIR__ . '/../vendor/autoload.php';
+
+require("db_classes/Mysql.php");
+
 $smarty=new Smarty;
 $smarty->template_dir = "../smarty/templates/";
 $smarty->compile_dir = "../smarty/templates_c/";
-include("Mysql.php");
+
 $mysql=new Mysql();
 $mysql->connect_mysqli();
 $mysql->create_room_table();
@@ -58,7 +61,7 @@ else{//不正に移行（url直打ち）してきたときはhomeに移行
 }
 
 $smarty->assign("VIDEOS",$videos);
-$smarty->assign("ROOM",$room);
+$smarty->assign("ROOM",$room[0]);
 $smarty->display("Room.html")
 
 

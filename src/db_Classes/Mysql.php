@@ -1,4 +1,6 @@
 <?php
+
+
 include("Room_Table.php");
 include("Video_Table.php");
 include("Register_Table.php");
@@ -14,11 +16,12 @@ class Mysql{
     public $room_table;
 	
 	public function __construct(){
-		$this->$db_name =getenv("DB_DATABASE");
+	$this->$db_name =getenv("DB_DATABASE");
 		$this->host =getenv("DB_HOST");
 		$this->user =getenv("DB_USERNAME");
 		$this->pass =getenv("DB_PASSWORD");
-		}
+	
+	}
 
 	public function __destruct()
 		{// DB接続を閉じる

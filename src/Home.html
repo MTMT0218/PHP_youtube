@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="Home.css">
+<link rel="stylesheet" href="css/Home.css">
 <title>YouTube機能色々</title>  
 </head>
 <body>
@@ -12,7 +12,7 @@
         <div>
 <ul>
         
-        <li><a href= "room.php?room_id={$r.id}" target="_blank">
+        <li><a href= "Room.php?room_id={$r.id}" target="_blank">
             {$r.room_name} 
         </a>
         </br>
@@ -21,10 +21,12 @@
             src="http://img.youtube.com/vi/{$v.video_id}/default.jpg"
             alt=""
             width="112"
-            height="65"/>    
+            height="65"/>
+            
         {/foreach}
+        
         </div>    
-        </br>
+        
     {/foreach}
 </ul>
 {/if}

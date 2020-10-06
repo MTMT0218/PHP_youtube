@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
-include("Mysql.php");
 require_once "../smarty/libs/Smarty.class.php";
 $smarty=new Smarty;
 $smarty->template_dir = "../smarty/templates/";
@@ -13,7 +12,7 @@ session_start();
 //検索キーワードが入力された場合にapiからデータをもらう
 if (isset($_GET['keyword'])){
 
-  $DEVELOPER_KEY=getenv("YOUTUBE_API");;
+  $DEVELOPER_KEY="AIzaSyAWT_BYkZaFQ_iqsq_kaIzaPqBglbM7UHA";
   $client = new Google_Client();
   $client->setDeveloperKey($DEVELOPER_KEY);
   $youtube = new Google_Service_YouTube($client);

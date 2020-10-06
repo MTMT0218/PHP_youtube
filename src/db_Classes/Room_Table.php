@@ -15,7 +15,7 @@ class Room_Table{
             )VALUES ('$name','$now')",getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
         if(!$res){
-            print( $this->mysqli->error);
+            printf("insert failed room: %s\n",$this->mysqli->error);
         }
         #作ったルームのidを取得
         $sql ='SELECT LAST_INSERT_ID()';
@@ -25,7 +25,7 @@ class Room_Table{
 
     }
 
-	public function read(){
+	public function ALL_read(){
         $sql = sprintf('SELECT * FROM %s.room',getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
         $temp="";
@@ -38,13 +38,25 @@ class Room_Table{
         return $temp;
     }
 
+    public function read($room_id){
+        $sql = sprintf('SELECT * FROM  %s.room WHERE id=%s',getenv("DB_DATABASE"),$room_id);
+        $res = $this->mysqli->query($sql);
+        $temp="";
+		if($res){
+		    $temp = $res->fetch_all(MYSQLI_ASSOC);
+        }
+        if(!$temp){
+            printf("Read failed room: %s\n",$this->mysqli->error);
+        }
+        return $temp;
+    }
     
     //削除
     public function delete($room_id){
-        $sql=spritf("DELETE FROM %s.room WHERE id=".$room_id,getenv("DB_DATABASE"));
+        $sql=sprintf("DELETE FROM %s.room WHERE id=".$room_id,getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
         if(!$res){
-            printf("Read failed room: %s\n",$this->mysqli->error);
+            printf("delete failed room: %s\n",$this->mysqli->error);
         }
     }
 }

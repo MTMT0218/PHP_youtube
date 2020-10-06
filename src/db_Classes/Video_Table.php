@@ -8,18 +8,17 @@ public function __construct($mysql){
 
     //入力
     public function insert($room_id,$video_name,$video_id){
-        sleep(1); 
       $sql = sprintf("INSERT INTO %s.video(
-            room_id,video_name,video_id
-            )VALUES ('$room_id','$video_name','$video_id')",getenv("DB_DATABASE"));
+          room_id,video_name,video_id
+        )VALUES ('$room_id','$video_name','$video_id')",getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
-        print( $this->mysqli->error);
+        if(!$res){
+            printf("insert failed video: %s\n",$this->mysqli->error);
+        }
     }
 
     //読み込み
     public function read($room_id){
-        sleep(1); 
-
         $sql = sprintf('SELECT * FROM %s.video 
         WHERE room_id='.$room_id,getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
@@ -28,7 +27,7 @@ public function __construct($mysql){
             $temp = $res->fetch_all(MYSQLI_ASSOC);
         }
         if(!$temp){
-        printf("Read failed video: %s\n",$this->mysqli->error);
+            printf("Read failed video: %s\n",$this->mysqli->error);
         }
         return $temp;
     }
@@ -40,7 +39,9 @@ public function __construct($mysql){
 		if($res){
             $temp = $res->fetch_all(MYSQLI_ASSOC);
 		}
-        print( $this->mysqli->error);
+        if(!$temp){
+            printf("ALL_Read failed video: %s\n",$this->mysqli->error);
+        }
         return $temp;
     }
    
@@ -49,7 +50,9 @@ public function __construct($mysql){
      public function delete($room_id){
         $sql=sprintf("DELETE FROM %s.video WHERE room_id=".$room_id,getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
-        print( $this->mysqli->error);
+        if(!$res){
+            printf("delete failed video: %s\n",$this->mysqli->error);
+        }
     }
 
 }
