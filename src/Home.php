@@ -1,14 +1,14 @@
 
 <?php
-print("a");
-require_once __DIR__ . '/../vendor/autoload.php';
 
-include(__DIR__ ."db_classes/Mysql.php");
+require_once __DIR__ . '/../vendor/autoload.php';
+print("a");
+include(__DIR__ ."/db_classes/Mysql.php");
 
 $smarty=new Smarty;
 $smarty->template_dir = "../smarty/templates/";
 $smarty->compile_dir = "../smarty/templates_c/";
-
+print("b");
 $videos=array();
 $rooms=array();
 $mysql=new Mysql();
@@ -18,7 +18,7 @@ $mysql->create_video_table();
 $room_table=$mysql->room_table;
 $video_table=$mysql->video_table;
 $rooms=$room_table->All_read();
-
+print("c");
 
 foreach($rooms as $r){
   try{
@@ -28,6 +28,7 @@ catch(Exception $e){
   continue;
 }
 }
+
 
 $smarty->assign("ROOMS_DATA",$rooms);
 $smarty->assign("VIDEOS_DATA",$videos);
