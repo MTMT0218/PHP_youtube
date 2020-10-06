@@ -48,7 +48,7 @@ if(isset($_POST["del_room"])){
     $room_table->delete($room_id);
 
     $video_table->delete($room_id);
-    header("Location:./");
+    header("Location:./Home.php");
 }
 
 if(isset($_SESSION["room_id"])){
