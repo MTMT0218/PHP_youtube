@@ -75,7 +75,7 @@ jQuery(function($){
                 break;
           　}            
         }
-        Cookies.set("get_videos",save_values); 
+        Cookies.set("get_videos",save_values,{samesite:"lax"}); 
         view_cokkie(save_values); 
         check_in_box(save_values);
       }

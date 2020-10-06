@@ -56,7 +56,7 @@ $room=$room_table->read($_SESSION["room_id"]);
 $videos=$video_table->read($_SESSION["room_id"]);
 }
 else{//不正に移行（url直打ち）してきたときはhomeに移行
-    header("Location:");
+    header("Location:./Home.php");
     exit;
 }
 
