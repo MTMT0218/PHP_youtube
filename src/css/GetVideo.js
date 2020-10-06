@@ -28,7 +28,7 @@ jQuery(function($){
           var exit_video_FLAG=0;//すでにクッキーにチェックされた動画あるか否か
           var temp={};
           temp={"id":encode_id,"value":encode_value};
-          if(save_values.length>6){
+          if(save_values.length>5){
             alert("選択できる動画は6個までです");
            this.checked=false; 
           }
