@@ -1,4 +1,4 @@
-body{
+html{
     background:linear-gradient(yellowgreen,yellow);
     width: 100%;
     height: 100%;
@@ -16,14 +16,16 @@ body{
 
 }
 .videos{
-    clear: both;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     height: 80%;
 }
 
-
+.sthumbnail{
+width: 50%;
+height: 100%;
+}
 
 iframe{
 width:100%;
