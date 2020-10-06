@@ -6,3 +6,4 @@ jQuery(function($){
             return false;
         }
     })
+})
