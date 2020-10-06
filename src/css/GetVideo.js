@@ -34,6 +34,10 @@ jQuery(function($){
                   break;
               }            
           }
+          if(save_values.length>6){
+            alert("選択できる動画は6個までです");
+            break;
+          }
           if(exit_video_FLAG==0){
             save_values.push(temp);
           }
