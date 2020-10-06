@@ -29,13 +29,6 @@ catch(Exception $e){
 }
 }
 
-if(isset($_POST["del_room"])){
-  $room_id=$_SESSION["room_id"];
-  $room_table->delete($room_id);
-
-  $video_table->delete($room_id);
-  header("Location:./");
-}
 $smarty->assign("ROOMS_DATA",$rooms);
 $smarty->assign("VIDEOS_DATA",$videos);
 $smarty->display("Home.html");
