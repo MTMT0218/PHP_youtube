@@ -2,20 +2,17 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-print("a");
-include(__DIR__ ."/db_classes/Mysql.php");
+include("db_Classes/Mysql.php");
 
 $smarty=new Smarty;
 $smarty->template_dir = "../smarty/templates/";
 $smarty->compile_dir = "../smarty/templates_c/";
-print("b");
 $videos=array();
 $rooms=array();
 $mysql=new Mysql();
 $mysql->connect_mysqli();
 $mysql->create_room_table();
 $mysql->create_video_table();
-print("c");
 $room_table=$mysql->room_table;
 $video_table=$mysql->video_table;
 $rooms=$room_table->All_read();
