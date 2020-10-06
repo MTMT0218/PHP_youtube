@@ -14,6 +14,8 @@ $mysql->create_video_table();
 $room_table=$mysql->room_table;
 $video_table=$mysql->video_table;
 session_start();
+$videos="";
+$room="";
 
  //video取得ページから移行されたときvideotableにvideo情報格納
 if(isset($_POST["make_room"])){
