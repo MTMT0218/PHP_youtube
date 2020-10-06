@@ -60,9 +60,7 @@ jQuery(function($){
   
   });
         
-    $("input[type=checkbox][name=del]").change(function(){
-          Cookies.remove('get_videos');
-    });
+    
 
     
     $(document).on('click', 'input[name=del_video]', function() {
