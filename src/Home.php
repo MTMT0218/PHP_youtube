@@ -2,11 +2,11 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-include("db_classes/Mysql.php");
+include(__DIR__ ."db_classes/Mysql.php");
 
 $smarty=new Smarty;
-$smarty->template_dir = "/../smarty/templates/";
-$smarty->compile_dir = "/../smarty/templates_c/";
+$smarty->template_dir = "../smarty/templates/";
+$smarty->compile_dir = "../smarty/templates_c/";
 
 $videos=array();
 $rooms=array();
