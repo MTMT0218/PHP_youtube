@@ -31,6 +31,10 @@ jQuery(function($){
           var exit_video_FLAG=0;
           var temp={};
           temp={"id":encode_id,"value":encode_value};
+          if(save_values.length>7){
+            alert("指定できる動画は6個までです")
+          }
+          else{
           for (var i=0; i<save_values.length; i++) {
             if(save_values[i]["id"]==encode_id){
                   exit_video_FLAG=1;
@@ -41,7 +45,7 @@ jQuery(function($){
             save_values.push(temp);
           }
         }
-        
+        }  
         //チェック外された動画はクッキーから削除
         else{
           var encode_id=encodeURIComponent(this.id);
@@ -53,7 +57,7 @@ jQuery(function($){
             }
         }
   
-
+      
         Cookies.set("get_videos",save_values);
         view_cokkie(save_values);
         disabled_make_room();
