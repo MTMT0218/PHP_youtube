@@ -31,8 +31,9 @@ jQuery(function($){
           var exit_video_FLAG=0;
           var temp={};
           temp={"id":encode_id,"value":encode_value};
-          if(save_values.length>7){
-            alert("指定できる動画は6個までです")
+          if(save_values.length>5){
+            alert("選択できる動画は6個までです");
+            this.checked=false;
           }
           else{
           for (var i=0; i<save_values.length; i++) {
