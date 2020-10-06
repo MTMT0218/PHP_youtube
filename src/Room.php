@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-require("db_classes/Mysql.php");
+require("db_Classes/Mysql.php");
 
 $smarty=new Smarty;
 $smarty->template_dir = "../smarty/templates/";
