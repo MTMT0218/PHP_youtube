@@ -14,7 +14,7 @@ class Room_Table{
             room_name,time
             )VALUES ('$name','$now')",getenv("DB_DATABASE"));
         $res = $this->mysqli->query($sql);
-        if(!$res){
+        if($this->mysqli->error){
             printf("insert failed room: %s\n",$this->mysqli->error);
         }
         #作ったルームのidを取得
@@ -32,7 +32,7 @@ class Room_Table{
 		if($res){
 		    $temp = $res->fetch_all(MYSQLI_ASSOC);
         }
-        if(!$temp){
+        if($this->mysqli->error){
             printf("Read failed room: %s\n",$this->mysqli->error);
         }
         return $temp;
@@ -45,7 +45,7 @@ class Room_Table{
 		if($res){
 		    $temp = $res->fetch_all(MYSQLI_ASSOC);
         }
-        if(!$temp){
+        if($this->mysqli->error){
             printf("Read failed room: %s\n",$this->mysqli->error);
         }
         return $temp;
