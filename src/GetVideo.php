@@ -33,6 +33,7 @@ if (isset($_GET['keyword'])){
   if($_GET["type"]=="live"){
     $_GET["type"]=["completed","live","upcoming"];
   }
+  try{
   $searchResponse = 
   $youtube->search->listSearch('id,snippet', array(
     'q' => $_GET["keyword"],
@@ -42,6 +43,10 @@ if (isset($_GET['keyword'])){
     'pageToken'=>$page,
     'type'=>'video',
   ));
+  }catch(Exception $e){
+    print("エラーが起きました\n");
+  }
+
 
  
   $_SESSION["next"]=$searchResponse["nextPageToken"];
